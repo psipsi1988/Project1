@@ -1,4 +1,4 @@
-package Project1.ver04;
+package Project1.ver05;
 import java.util.Scanner;
 public class PhoneBookManager {
 
@@ -7,8 +7,6 @@ public class PhoneBookManager {
 		this.myPhone = myPhone;
 		this.numOfPhones = numOfPhones;
 	}
-	
-	
 	
 
 	private PhoneInfo[] myPhone;
@@ -19,14 +17,55 @@ public class PhoneBookManager {
 		numOfPhones = 0;
 	}
 	
+
 	
+
+	public void printMenu() {
+
+		System.out.println("선택하세요. ");
+		System.out.println("1.데이터입력");
+		System.out.println("2.데이터검색");
+		System.out.println("3.데이터삭제");
+		System.out.println("4.주소록출력");
+		System.out.println("5.프로그램 종료");
+		System.out.println("선택 : ");
+		
+		while(true) {
+			//메뉴출력을 위한 메소드호출			
+
+			Scanner scan = new Scanner(System.in);
+			int choice = scan.nextInt();
+
+			switch(choice) {
+			case MenuItem.INPUT:		 //데이터 입력
+				dataInput();
+				break;
+			case MenuItem.SEARCH:		//친구정보검색
+				dataSearch();
+				break;	
+			case MenuItem.DELETE:		//친구정보삭제
+				dataDelete();
+				break;	
+			case MenuItem.SHOW:		//전체정보출력
+				dataAllShow();
+				break;
+			case MenuItem.EXIT:
+				System.out.println("프로그램을 종료합니다.");
+				return;//main함수의 종료는 프로그램 종료로 이어진다.
+			}
+		}
+	}
 	
-	
+		
 	public static void printMenu1() {
 		System.out.println("데이터 입력을 시작합니다. ");
 		System.out.println("일반=1 / 동창=2 / 회사동료=3");
 		System.out.println("선택 : ");
 	}
+	
+	
+	
+	
 	
 	public void dataInput01() {
 		//사용자로부터 친구정보를 입력받기 위한 준비
@@ -38,13 +77,13 @@ public class PhoneBookManager {
 		String name, phoneNumber, major, company;
 		
 		
-		if(choice==1) {
+		if(choice==SubMenuItem.NOMAL) {
 			System.out.print("이름:");name = scan.nextLine();
 			System.out.print("전화번호:");phoneNumber = scan.nextLine();
 			PhoneInfo p1 = new PhoneInfo(name, phoneNumber);
 			myPhone[numOfPhones++] = p1;
 		}
-		else if(choice==2) {
+		else if(choice==SubMenuItem.SCHOOL) {
 			System.out.print("이름:");name = scan.nextLine();
 			System.out.print("전화번호:");phoneNumber = scan.nextLine();
 			System.out.print("전공:");major = scan.nextLine();
@@ -53,7 +92,7 @@ public class PhoneBookManager {
 					new PhoneSchoolInfo(name, phoneNumber, major, grade);
 			myPhone[numOfPhones++] = sch1;
 		}
-		else if(choice==3) {
+		else if(choice==SubMenuItem.COMPANY) {
 			System.out.print("이름:");name = scan.nextLine();
 			System.out.print("전화번호:");phoneNumber = scan.nextLine();
 			System.out.print("회사:");company = scan.nextLine();
@@ -68,7 +107,7 @@ public class PhoneBookManager {
 	}////end of addphoneNumber 
 	
 	//새로운 친구 입력
-	public void dataInput(int choice) {
+	public void dataInput() {
 		//사용자로부터 친구정보를 입력받기 위한 준비
 		printMenu1();
 		Scanner scan = new Scanner(System.in);

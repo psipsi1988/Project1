@@ -15,18 +15,9 @@ public class PhoneBookManager {
 
 
 	int numOfPhones=0;
-
-
-
-	/*
-	public PhoneBookManager(PhoneInfo[] myPhone, int numOfPhones) {
-		super();
-		this.myPhone = myPhone;
-		this.numOfPhones = numOfPhones;
-	}*/
-
-
 	private PhoneInfo[] myPhone;
+	
+	
 	//private int numOfPhones;//친구정보를 추가할때마다 +1 증가
 	//생성자 : 인자로 전달되는 num크기로 객체배열을 생성한다. 
 	public PhoneBookManager(int num) {

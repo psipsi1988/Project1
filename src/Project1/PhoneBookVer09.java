@@ -8,13 +8,13 @@ public class PhoneBookVer09 {
 
 
 	public static void printMenu() {
-
-		System.out.println("선택하세요. ");
-		System.out.println("1.데이터입력");
-		System.out.println("2.데이터검색");
-		System.out.println("3.데이터삭제");
-		System.out.println("4.주소록출력");
-		System.out.println("5.프로그램 종료");
+		System.out.println("--Phone Book--");
+		System.out.println("메뉴를 선택하세요. ");
+		System.out.println("1. 주소록 입력");
+		System.out.println("2. 주소록 검색");
+		System.out.println("3. 주소록 삭제");
+		System.out.println("4. 주소록 출력");
+		System.out.println("5. 프로그램 종료");
 		System.out.println("선택 : ");
 	}
 

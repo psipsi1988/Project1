@@ -60,15 +60,15 @@ public class PhoneBookManager {
 	public void printMenu() {
 
 		PhoneBookManager();
-		
-		System.out.println("선택하세요. ");
-		System.out.println("1.데이터입력");
-		System.out.println("2.데이터검색");
-		System.out.println("3.데이터삭제");
-		System.out.println("4.주소록출력");
-		System.out.println("5.프로그램 종료");
+		System.out.println("--Phone Book--");
+		System.out.println("메뉴를 선택하세요. ");
+		System.out.println("1. 주소록 입력");
+		System.out.println("2. 주소록 검색");
+		System.out.println("3. 주소록 삭제");
+		System.out.println("4. 주소록 출력");
+		System.out.println("5. 프로그램 종료");
 		System.out.println("선택 : ");
-
+	
 		while(true) {
 			//메뉴출력을 위한 메소드호출			
 
@@ -114,17 +114,16 @@ public class PhoneBookManager {
 			}
 			catch(InputMismatchException e) {
 				System.out.println("숫자를 입력하세요. ");
+				scan.nextLine();
 			}
 			catch(NullPointerException e) {
 				System.out.println("데이터가 없습니다. ");
 				printMenu();
 			} 
 			catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 			catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -232,6 +231,7 @@ public class PhoneBookManager {
 		}
 		catch(InputMismatchException e) {
 			System.out.println("숫자를 입력하세요. ");
+			scan.nextLine();
 			dataInput01();
 			//return;
 		}
@@ -256,6 +256,8 @@ public class PhoneBookManager {
 				return;
 			}
 			else if (choice == 2) {
+				System.out.println("입력이 취소되었습니다. ");
+				printMenu();
 				return;
 			}
 		}

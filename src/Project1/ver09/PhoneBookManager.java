@@ -88,10 +88,29 @@ public class PhoneBookManager {
 
 	//친구정보 전체보기
 	public void dataAllShow() {
-		for(int i=0 ; i<numOfPhones ; i++) {
-			myPhone[i].showPhoneInfo();
-		}
+		try {
+			
+			String query = "select * from phonebook_tb"; 
+			stmt = con.createStatement();
+			rs= stmt.executeQuery(query);
+			while(rs.next()) {
+				String name = rs.getString(1);
+				int phoneNumber = rs.getInt(2);
+				String birthday = rs.getString(3);
+				System.out.println("");
 
+				System.out.printf("%s, %s, %s", name, phoneNumber, birthday);
+
+			}
+		
+
+
+
+	}
+	catch(SQLException e) {
+		e.printStackTrace();
+	}
+		System.out.println("");
 		System.out.println("==전체정보가 출력되었습니다==");
 	}////end of showPhoneInfo
 
